@@ -1,0 +1,20 @@
+import scala.collection.mutable.ListBuffer
+object Solution {
+    def minimumTotal(triangle: List[List[Int]]): Int = {
+       var tempList:Array[Array[Int]]=Array.ofDim[Int](triangle.length,triangle(triangle.length-1).length);
+
+
+       for(i<-0 until triangle.length){
+           for(j<-0 until triangle(i).length){
+               tempList(i)(j)=triangle(i)(j);
+           }
+       }
+
+       for(i<-triangle.length-2 to 0 by -1){
+           for(j<-0 until triangle(i).length){
+               tempList(i)(j)=tempList(i)(j)+Math.min(tempList(i+1)(j),tempList(i+1)(j+1));
+           }
+       }
+        return tempList(0)(0);
+    }
+}
