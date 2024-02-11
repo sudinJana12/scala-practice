@@ -1,0 +1,12 @@
+object Solution {
+    def sortedArrayToBST(nums: Array[Int]): TreeNode = {
+        buildBST(nums,0,nums.length-1);
+    }
+
+    def buildBST(nums:Array[Int],left:Int,right:Int):TreeNode={
+        if(left>right)
+        return null
+        val mid:Int=(left+right)/2;
+        new TreeNode(nums(mid),buildBST(nums,left,mid-1),buildBST(nums,mid+1,right));
+    }
+}
