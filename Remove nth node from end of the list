@@ -1,0 +1,29 @@
+object Solution {
+    def removeNthFromEnd(head: ListNode, n: Int): ListNode = {
+        var temp:ListNode=head;
+        var count=0;
+        while(temp!=null){
+            count=count+1;
+            temp=temp.next;
+        }
+        temp=head;
+        var len=count-n;
+        var prev:ListNode=null;
+        while(len!=0){
+              prev=temp;
+              temp=temp.next;
+              len=len-1;
+        }
+        if(prev==null){
+           
+            return head.next;
+        }
+        else if(temp.next==null){
+            prev.next=null;
+            return head;
+        }else{
+            prev.next=temp.next;
+            return head;
+        }
+    }
+}
