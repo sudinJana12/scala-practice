@@ -1,0 +1,32 @@
+object Solution {
+    def isPalindrome(s: String): Boolean = {
+        var x=new StringBuilder();
+        for(ch<-s){
+            if(ch>='a' && ch<='z'){
+                x+=ch;
+            }
+            else if(ch>='A' && ch<='Z'){
+                
+                x+=(ch+32).toChar;
+            }else if(ch>='0' && ch<='9'){
+                x+=ch;
+            }
+        }
+        println(x);
+        
+        var left=0;
+        var right=x.length-1;
+        var res=0;
+        while(left<=right){
+            if(x(left)!=x(right)){
+                res=1;
+            }
+            left=left+1;
+            right=right-1;
+        }
+        if(res==1)
+        false
+        else
+        true
+    }
+}
