@@ -1,0 +1,12 @@
+object Solution {
+    def maxProfit(prices: Array[Int]): Int = {
+        var totalProfit = 0
+        var prevPrice = prices(0)
+        for (bs <- 1 until prices.length) {
+            val currentPrice = prices(bs)
+            if (prevPrice < currentPrice) totalProfit += currentPrice - prevPrice
+            prevPrice = currentPrice
+        }
+      totalProfit  
+    }
+}
