@@ -1,0 +1,17 @@
+object Solution {
+    def isSymmetric(root: TreeNode): Boolean = {
+        return isSymmetricTree(root.left,root.right);
+    }
+    def isSymmetricTree(root1:TreeNode,root2:TreeNode):Boolean={
+        if(root1==null && root2==null){
+            return true;
+        }
+        if(root1==null || root2==null){
+            return false;
+        }
+        if(root1.value!=root2.value){
+            return false;
+        }
+        return isSymmetricTree(root1.left,root2.right) && isSymmetricTree(root1.right,root2.left);
+    }
+}
